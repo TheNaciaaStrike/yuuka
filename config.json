@@ -1,5 +1,8 @@
 {
-    "location": "Vilnius",
+    "location":{
+        "city": "Vilnius",
+        "country": "Lithuania"
+    },
     "i2c":{
         "i2cAddress": [],
         "i2cPort": "/dev/i2c-1",
