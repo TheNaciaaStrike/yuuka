@@ -1,5 +1,5 @@
 import os
-from modules import ARDUINIO
+from logger.modules import ARDUINIO
 
 arduino = ARDUINIO.ArduinoSerial('/dev/ttyUSB0', 9600)
 

@@ -1,4 +1,4 @@
-from modules import PCF8574
+from control.modules import PCF8574
 import time
 
 

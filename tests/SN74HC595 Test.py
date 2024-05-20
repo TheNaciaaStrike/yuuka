@@ -1,4 +1,4 @@
-from modules import SN74HC595
+from control.modules import SN74HC595
 import time
 
 test = SN74HC595.SN74HC595(12, 16, 20, 1)

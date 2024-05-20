@@ -1,5 +1,5 @@
 import time
-from modules import AM2320
+from logger.modules import AM2320
 
 #Create an object from the AM2320 class called "sensor"
 sensor = AM2320.AM2320()

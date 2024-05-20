@@ -9,7 +9,7 @@ sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..'))
 #    sys.path.append(libdir)
 
 import logging
-from modules.eink import epd4in2
+from display.modules.eink import epd4in2
 import time
 from PIL import Image,ImageDraw,ImageFont
 import traceback

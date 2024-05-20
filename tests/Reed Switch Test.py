@@ -1,7 +1,7 @@
-import reedswitch
+import logger.reedswitch
 import time
 
-reed = reedswitch.ReedSwitch(27)
+reed = logger.reedswitch.ReedSwitch(27)
 
 while True:
     print(reed.is_pressed())

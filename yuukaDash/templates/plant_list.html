@@ -1,0 +1,8 @@
+{% block content %}
+    <h2>{{ title}}</h2>
+    <ul>
+        {% for publisher in object_list %}
+            <li>{{ publisher.id}}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
