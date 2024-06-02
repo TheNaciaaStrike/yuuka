@@ -12,6 +12,9 @@ class ReporterDevice(models.Model):
     serial_port = models.CharField(max_length=200, null=True, blank=True)
     serial_baudrate = models.IntegerField(null=True, blank=True)
 
+    def __str__(self):
+        return self.name
+
 class TemperatureAndHumidityDevice(models.Model):
     connectedTo = models.ForeignKey(ReporterDevice, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
@@ -22,6 +25,8 @@ class TemperatureAndHumidityDevice(models.Model):
     spi_address = models.IntegerField(null=True, blank=True)
     gpio_enabled = models.BooleanField(null=True, blank=True)
     gpio_pin = models.IntegerField(null=True, blank=True)
+    def __str__(self):
+        return self.name
 
 class SoilMoistureDevice(models.Model):
     connectedTo = models.ForeignKey(ReporterDevice, on_delete=models.CASCADE)
@@ -31,6 +36,8 @@ class SoilMoistureDevice(models.Model):
     i2c_address = models.IntegerField(null=True, blank=True)
     gpio_enabled = models.BooleanField(null=True, blank=True)
     gpio_pin = models.IntegerField(null=True, blank=True)
+    def __str__(self):
+        return self.name
 
 class WaterLevelDevice(models.Model):
     connectedTo = models.ForeignKey(ReporterDevice, on_delete=models.CASCADE)

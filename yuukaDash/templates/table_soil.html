@@ -36,7 +36,10 @@
             <div id="content">
                 <div class="container-fluid">
                     <BR>
-                    <h3 class="text-dark mb-4">Team</h3>
+                    <h3 class="text-dark mb-4">Reporting Devices</h3>
+
+                    <a href="./create" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add Device</a></button>
+
                     <div class="card shadow">
                         <div class="card-header py-3">
                             <p class="text-primary m-0 fw-bold">{{title}} Info</p>
@@ -60,11 +63,14 @@
                                                 <tr>
                                                     <td>{{ plants.id }}</td>
                                                     <td>{{ plants.name }}</td>
-                                                    <td>{{ plants.type }}</td>
-                                                    <td>{{ plants.description }}</td>
+                                                    {% if plants.i2c_enabled %}
+                                                        <td>I2C @ {{i2c_address}}</td>
+                                                    {% else %}
+                                                        <td>GPIO</td>
+                                                    {% endif %}                                                    <td>{{ plants.description }}</td>
                                                     <td>{{ plants.dateAdded }}</td>
-                                                    <td><a href="{% url 'edit_plant'  plants.id  %}" class="btn btn-primary btn-sm">Edit</a>
-                                                        <form action="{% url 'delete_plant' plants.id %}" method="post" style="display:inline;">
+                                                    <td><a href="{% url 'edit_soil_moisture'  plants.id  %}" class="btn btn-primary btn-sm">Edit</a>
+                                                        <form action="{% url 'delete_soil_moisture' plants.id %}" method="post" style="display:inline;">
                                                             {% csrf_token %}
                                                             <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                                                         </form></td>

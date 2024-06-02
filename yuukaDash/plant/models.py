@@ -12,4 +12,5 @@ class Plant(models.Model):
     dateAdded = models.DateTimeField(auto_now_add=True)
     I2CCode = models.CharField(max_length=4,null=True, blank=True)
     reporter = models.ForeignKey(ReporterDevice, on_delete=models.CASCADE,null=True, blank=True)
-
+    def __str__(self):
+        return self.name

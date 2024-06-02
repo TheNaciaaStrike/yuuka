@@ -10,7 +10,7 @@ from .forms import PlantForm
 
 class PlantView(ListView):
     model = Plant
-    template_name = 'table.html'
+    template_name = 'table_plant.html'
     context_object_name = 'plants'
     title = 'Plants'
 
@@ -28,14 +28,28 @@ class PlantView(ListView):
 class PlantCreateView(CreateView):
     model = Plant
     form_class = PlantForm
+    title = 'Plants'
     template_name = 'form.html'
     success_url = reverse_lazy('plant_list')
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        fields = [field.name for field in Plant._meta.get_fields()]
+        context['title'] = self.title
+        context['fields'] = fields
+        return context
 
 class PlantUpdateView(UpdateView):
     model = Plant
     form_class = PlantForm
+    title = 'Plants'
     template_name = 'form.html'
     success_url = reverse_lazy('plant_list')
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        fields = [field.name for field in Plant._meta.get_fields()]
+        context['title'] = self.title
+        context['fields'] = fields
+        return context
 
 class PlantDeleteView(DeleteView):
     model = Plant

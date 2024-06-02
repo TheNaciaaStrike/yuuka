@@ -16,10 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path , include
+from . import views
 
 urlpatterns = [
+    path('', views.Homepage.as_view(), name="plant_list"),
     path('admin/', admin.site.urls),
     path('plant/', include('plant.urls')),
     path('devices/', include('devices.urls')),
     path('datalog/', include('datalog.urls')),
+    path('iocontrol/', include('iocontrol.urls')),
 ]
